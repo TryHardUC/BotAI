@@ -1,6 +1,0 @@
-# Example Dota script using the Lua interpreter
-start_bot
-move_to 100 200
-wait 1
-say Hello, Dota!
-attack enemy1

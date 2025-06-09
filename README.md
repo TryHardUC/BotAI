@@ -1,26 +1,11 @@
 # BotAI
 
-This repository contains a small Lua interpreter demonstrating how to interact
-with the [UCZone API](https://uczone.gitbook.io/api-v2.0) that is included in the
-environment. The interpreter parses a minimal DSL and forwards commands to the
-API, launching the standard bot before executing the rest of the script.
+This repository contains an interpreter script for running bots in the UCZone environment. The script is written in Lua and demonstrates how to load modules, attach a UI toggle and lazily start the standard bot implementation.
 
 ## Usage
 
-1. Prepare a script file with commands. See `example_script.dota` for a basic example.
-2. Run the interpreter with Lua:
+1. Copy `interpreter.lua` into your cheat's `scripts` directory.
+2. Start the game with the UCZone cheat. Use the `Enable AI-Bot` checkbox from the UI to activate the bot during a match.
+3. The interpreter logs module loads and bot activity using `adapter.log` while forwarding `Init` and `Think` calls to `bot_generic`.
 
-```bash
-lua dota_interpreter.lua example_script.dota
-```
-
-Supported commands:
-
-- `start_bot` — launch the standard bot provided by the API.
-- `move_to X Y` — move your hero to coordinates `X`, `Y`.
-- `attack TARGET` — attack a given target.
-- `wait SECONDS` — pause execution for a given time.
-- `say MESSAGE` — send a chat message.
-
-The script is a minimal demonstration. Consult the official UCZone
-documentation for full details of available functions.
+Refer to the [UCZone API documentation](https://uczone.gitbook.io/api-v2.0) for details on available functions and how to implement your own bots.
